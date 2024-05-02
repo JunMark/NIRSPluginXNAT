@@ -1,6 +1,8 @@
 XNAT Plugin Development
+
 Objective:
 Develop a plugin for XNAT to create a new data type and integrate it into the XNAT system using Gradle.
+
 Steps: (skip to Step 5 if edit exsiting plugins)
 1.	Setting Up Environment:
 •	Install necessary tools: Java Development Kit (JDK), Gradle, XNAT. (Tips: check Compatibility between JDK and Gradle. For example, JDK 15&Gradle 6.7 can work)
