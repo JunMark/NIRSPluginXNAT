@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created by Jun Cao (University of Birmingham) -->
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd" schema-element="NIRS:NIRSSessionData" full-description="NIRS Session" brief-description="NIRS Session">
+    <DisplayField id="RESOURCES_NIRS" header="Resources" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" viewName="RESOURCES_NIRS" viewColumn="TYPE_COUNT"/>
+    <description>NIRS resource collections</description>
+    </DisplayField>
+    <ViewLink alias="RESOURCES_NIRS">
+        <Mapping TableName="RESOURCES_NIRS">
+            <MappingColumn rootElement="NIRS:NIRSSessionData" fieldElement="NIRS:NIRSSessionData.ID" mapsTo="image_id"/>
+        </Mapping>
+    </ViewLink>
+    <SQLView name="resources_NIRS" sql="SELECT IMAGE_ID, TRIM(', ' FROM xs_a_concat(TYPE_COUNT || ', ')) AS TYPE_COUNT FROM (SELECT xnat_experimentdata_resource.xnat_experimentdata_id AS IMAGE_ID,xnat_abstractresource.label AS TYPE_COUNT FROM xnat_abstractresource,xnat_experimentdata_resource WHERE xnat_experimentdata_resource.xnat_abstractresource_xnat_abstractresource_id=xnat_abstractresource.xnat_abstractresource_id GROUP BY xnat_experimentdata_resource.xnat_experimentdata_id,xnat_abstractresource.label,xnat_abstractresource.file_count ORDER BY xnat_experimentdata_resource.xnat_experimentdata_id,xnat_abstractresource.label) _TYPES GROUP BY IMAGE_ID"/>    
+</Displays>
