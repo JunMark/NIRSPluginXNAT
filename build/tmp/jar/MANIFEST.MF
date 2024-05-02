@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Application-Name: NIRS-PLUGIN
+Build-Date: Thu May 02 07:48:03 BST 2024
+Build-Number: Manual
+Implementation-Version: 1.0.0
+Implementation-Sha: c8870b6f7a
+Implementation-Sha-Full: c8870b6f7a30907e02680a6a017cf14fa437854b
+Implementation-Commit: 2
+Implementation-LastTag: 1.8.9.1
+Implementation-Branch: master
+Implementation-CleanTag: false
+Implementation-Dirty: true
+

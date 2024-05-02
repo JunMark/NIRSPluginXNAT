@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://nrg.wustl.edu/NIRS"
+           xmlns:NIRS="http://nrg.wustl.edu/NIRS"
+           xmlns:xnat="http://nrg.wustl.edu/xnat"
+           xmlns:xdat="http://nrg.wustl.edu/xdat"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+
+    <xs:element name="NIRSSession" type="NIRS:NIRSSessionData"/>
+    <xs:element name="NIRSScan" type="NIRS:NIRSScanData"/>
+    
+
+    <xs:complexType name="NIRSSessionData">
+        <xs:annotation>
+            <xs:documentation>An event in which NIRS scans are obtained on a subject</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="xnat:imageSessionData">
+                <xs:sequence minOccurs="0">
+
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="NIRSScanData">
+        <xs:complexContent>
+            <xs:extension base="xnat:imageScanData">
+                <xs:sequence minOccurs="0">
+<!--                    #Task info-->
+                    <xs:element name="task" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>What kind of task was being done e.g. recollection, motion, taking</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

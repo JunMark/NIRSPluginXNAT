@@ -1,0 +1,38 @@
+org/nrg/xdat/om/NirsNirsscandata.java
+ org.nrg.xdat.om.NirsNirsscandata
+org/nrg/xdat/turbine/modules/screens/XDATScreen_edit_NIRS_NIRSSessionData.java
+ org.nrg.xdat.turbine.modules.screens.XDATScreen_edit_NIRS_NIRSSessionData
+org/nrg/xnatx/plugins/NIRS/importer/NIRSImporter.java
+ org.nrg.xnatx.plugins.NIRS.importer.NIRSImporter
+org/nrg/xnatx/plugins/NIRS/NIRSPlugin.java
+ org.nrg.xnatx.plugins.NIRS.NIRSPlugin
+org/nrg/xnatx/plugins/NIRS/sessionBuilder/NIRSScanBuilder.java
+ org.nrg.xnatx.plugins.NIRS.sessionBuilder.NIRSScanBuilder
+org/nrg/xdat/om/base/auto/AutoNirsNirsscandata.java
+ org.nrg.xdat.om.base.auto.AutoNirsNirsscandata
+org/nrg/xdat/model/NirsNirsscandataI.java
+ org.nrg.xdat.model.NirsNirsscandataI
+org/nrg/xnatx/plugins/NIRS/sessionBuilder/NIRSSessionBuilder.java
+ org.nrg.xnatx.plugins.NIRS.sessionBuilder.NIRSSessionBuilder
+org/nrg/xdat/turbine/modules/screens/XDATScreen_edit_NIRS_NIRSScanData.java
+ org.nrg.xdat.turbine.modules.screens.XDATScreen_edit_NIRS_NIRSScanData
+org/nrg/xdat/model/NirsNirssessiondataI.java
+ org.nrg.xdat.model.NirsNirssessiondataI
+org/nrg/xdat/bean/NirsNirssessiondataBean.java
+ org.nrg.xdat.bean.NirsNirssessiondataBean
+org/nrg/xnat/turbine/modules/screens/UploadNIRS.java
+ org.nrg.xnat.turbine.modules.screens.UploadNIRS
+org/nrg/xdat/bean/NirsNirsscandataBean.java
+ org.nrg.xdat.bean.NirsNirsscandataBean
+org/nrg/xdat/turbine/modules/screens/XDATScreen_report_NIRS_NIRSSessionData.java
+ org.nrg.xdat.turbine.modules.screens.XDATScreen_report_NIRS_NIRSSessionData
+org/nrg/xdat/turbine/modules/screens/XDATScreen_report_NIRS_NIRSScanData.java
+ org.nrg.xdat.turbine.modules.screens.XDATScreen_report_NIRS_NIRSScanData
+org/nrg/xdat/om/NirsNirssessiondata.java
+ org.nrg.xdat.om.NirsNirssessiondata
+org/nrg/xdat/om/base/BaseNirsNirssessiondata.java
+ org.nrg.xdat.om.base.BaseNirsNirssessiondata
+org/nrg/xdat/om/base/auto/AutoNirsNirssessiondata.java
+ org.nrg.xdat.om.base.auto.AutoNirsNirssessiondata
+org/nrg/xdat/om/base/BaseNirsNirsscandata.java
+ org.nrg.xdat.om.base.BaseNirsNirsscandata

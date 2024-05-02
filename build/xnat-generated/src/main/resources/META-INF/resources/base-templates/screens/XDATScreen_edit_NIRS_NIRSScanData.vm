@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("XDAT")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+ ##---------------------------------------- 
+ ## DO NOT MODIFY THIS FILE HERE
+ ##
+ ## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there 
+ ##----------------------------------------
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#if ($data.message)
+<font color="red" size="3">$data.message</font>
+#end
+<p>
+<form ID="form1" name="form1" method="post" action="$link.setAction("ModifyItem")">
+<input type="hidden" name="project" value="$!{project}" >
+#if($vr)
+	<font color="red">Invalid parameters:<BR>$vr.toHTML()</font>
+<HR>
+#end
+
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">NIRSScan Details</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+							<TR><TD>image_session_ID</TD><TD>#xdatStringBox("NIRS:NIRSScanData/image_session_ID" $item "" $vr)</TD></TR>
+							<TR><TD>note</TD><TD>#xdatStringBox("NIRS:NIRSScanData/note" $item "" $vr)</TD></TR>
+							<TR><TD>quality</TD><TD>#xdatStringBox("NIRS:NIRSScanData/quality" $item "" $vr)</TD></TR>
+							<TR><TD>condition</TD><TD>#xdatStringBox("NIRS:NIRSScanData/condition" $item "" $vr)</TD></TR>
+							<TR><TD>series_description</TD><TD>#xdatStringBox("NIRS:NIRSScanData/series_description" $item "" $vr)</TD></TR>
+							<TR><TD>series_class</TD><TD>#xdatStringBox("NIRS:NIRSScanData/series_class" $item "" $vr)</TD></TR>
+							<TR><TD>documentation</TD><TD>#xdatStringBox("NIRS:NIRSScanData/documentation" $item "" $vr)</TD></TR>
+							<TR><TD>scanner</TD><TD>#xdatStringBox("NIRS:NIRSScanData/scanner" $item "" $vr)</TD></TR>
+							<TR><TD>scanner/manufacturer</TD><TD>#xdatStringBox("NIRS:NIRSScanData/scanner/manufacturer" $item "" $vr)</TD></TR>
+							<TR><TD>scanner/model</TD><TD>#xdatStringBox("NIRS:NIRSScanData/scanner/model" $item "" $vr)</TD></TR>
+							<TR><TD>scanner/softwareVersion</TD><TD>#xdatStringBox("NIRS:NIRSScanData/scanner/softwareVersion" $item "" $vr)</TD></TR>
+							<TR><TD>modality</TD><TD>#xdatStringBox("NIRS:NIRSScanData/modality" $item "" $vr)</TD></TR>
+							<TR><TD>frames</TD><TD>#xdatTextBox("NIRS:NIRSScanData/frames" $item "" $vr)</TD></TR>
+							<TR><TD>operator</TD><TD>#xdatStringBox("NIRS:NIRSScanData/operator" $item "" $vr)</TD></TR>
+							<TR><TD>startTime</TD><TD>#xdatTextBox("NIRS:NIRSScanData/startTime" $item "" $vr)</TD></TR>
+							<TR><TD>start_date</TD><TD>#xdatDateBox("NIRS:NIRSScanData/start_date" $item $vr $years)</TD></TR>
+							<TR><TD>requestedProcedureDescription</TD><TD>#xdatStringBox("NIRS:NIRSScanData/requestedProcedureDescription" $item "" $vr)</TD></TR>
+							<TR><TD>protocolName</TD><TD>#xdatStringBox("NIRS:NIRSScanData/protocolName" $item "" $vr)</TD></TR>
+							<TR><TD>bodyPartExamined</TD><TD>#xdatStringBox("NIRS:NIRSScanData/bodyPartExamined" $item "" $vr)</TD></TR>
+							<TR><TD>ID</TD><TD>#xdatStringBox("NIRS:NIRSScanData/ID" $item "" $vr)</TD></TR>
+							<TR><TD>type</TD><TD>#xdatStringBox("NIRS:NIRSScanData/type" $item "" $vr)</TD></TR>
+							<TR><TD>UID</TD><TD>#xdatStringBox("NIRS:NIRSScanData/UID" $item "" $vr)</TD></TR>
+							<TR><TD>project</TD><TD>#xdatStringBox("NIRS:NIRSScanData/project" $item "" $vr)</TD></TR>
+													#xdatHiddenBox("NIRS:NIRSScanData/xnat_imageScanData_id" $item "")
+							<TR><TD>task</TD><TD>#xdatStringBox("NIRS:NIRSScanData/task" $item "" $vr)</TD></TR>
+						</TABLE>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+<!-- BEGIN NIRS:NIRSScanData -->
+			<TABLE>
+				<TR><TH align="left"><font face="$ui.sansSerifFonts" size="2">Related Items</font></TH></TR>
+<!-- BEGIN NIRS:NIRSScanData/sharing/share -->
+				<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/sharing/share</font></TH></TR>
+				<TR>
+					<TD align="left" valign="top">
+						<TABLE>
+							<TR>
+								<TD>share</TD>
+								<TD>label</TD>
+								<TD>project</TD>
+							</TR>
+							#foreach($xnat_imageScanData_share_1_COUNTER in [0..5])
+								<TR>
+									<TD>#xdatTextBox("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/share" $item "" $vr)</TD>
+									<TD>#xdatTextBox("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/label" $item "" $vr)</TD>
+									<TD>#xdatTextBox("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/project" $item "" $vr)</TD>
+									#xdatHiddenBox("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/xnat_imageScanData_share_id" $item "")
+								</TR>
+							#end
+						</TABLE>
+					</TD>
+				</TR>
+<!-- END NIRS:NIRSScanData/sharing/share -->
+				<TR>
+					<TD align="left" valign="top">
+						<TABLE><TR><TD>
+							#foreach($xnat_abstractResource_1_COUNTER in [0..5])
+<!-- BEGIN NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER] -->
+								<TABLE>
+									<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]</font></TH></TR>
+									<TR>
+										<TD align="left" valign="top">
+											<TABLE>
+												<TR><TD>note</TD><TD>#xdatStringBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/note" $item "" $vr)</TD></TR>
+												<TR><TD>label</TD><TD>#xdatStringBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/label" $item "" $vr)</TD></TR>
+												<TR><TD>file_count</TD><TD>#xdatTextBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/file_count" $item "" $vr)</TD></TR>
+												<TR><TD>file_size</TD><TD>#xdatTextBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/file_size" $item "" $vr)</TD></TR>
+																		#xdatHiddenBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/xnat_abstractResource_id" $item "")
+											</TABLE>
+										</TD>
+									</TR>
+<!-- BEGIN NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag -->
+									<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag</font></TH></TR>
+									<TR>
+										<TD align="left" valign="top">
+											<TABLE>
+												<TR>
+													<TD>tag</TD>
+													<TD>name</TD>
+												</TR>
+												#foreach($xnat_abstractResource_tag_2_COUNTER in [0..5])
+													<TR>
+														<TD>#xdatTextBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag[$xnat_abstractResource_tag_2_COUNTER]/tag" $item "" $vr)</TD>
+														<TD>#xdatTextBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag[$xnat_abstractResource_tag_2_COUNTER]/name" $item "" $vr)</TD>
+														#xdatHiddenBox("NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag[$xnat_abstractResource_tag_2_COUNTER]/xnat_abstractResource_tag_id" $item "")
+													</TR>
+												#end
+											</TABLE>
+										</TD>
+									</TR>
+<!-- END NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER]/tags/tag -->
+								</TABLE>
+<!-- END NIRS:NIRSScanData/file[$xnat_abstractResource_1_COUNTER] -->
+							#end
+						</TD></TR></TABLE>
+					</TD>
+				</TR>
+				<TR>
+					<TD align="left" valign="top">
+<!-- BEGIN NIRS:NIRSScanData/validation -->
+						<TABLE>
+							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/validation</font></TH></TR>
+							<TR>
+								<TD align="left" valign="top">
+									<TABLE>
+										<TR><TD>method</TD><TD>#xdatStringBox("NIRS:NIRSScanData/validation/method" $item "" $vr)</TD></TR>
+										<TR><TD>date</TD><TD>#xdatDateBox("NIRS:NIRSScanData/validation/date" $item $vr $years)</TD></TR>
+										<TR><TD>notes</TD><TD>#xdatStringBox("NIRS:NIRSScanData/validation/notes" $item "" $vr)</TD></TR>
+										<TR><TD>validated_by</TD><TD>#xdatStringBox("NIRS:NIRSScanData/validation/validated_by" $item "" $vr)</TD></TR>
+										<TR><TD>status</TD><TD>#xdatStringBox("NIRS:NIRSScanData/validation/status" $item "" $vr)</TD></TR>
+																#xdatHiddenBox("NIRS:NIRSScanData/validation/xnat_validationData_id" $item "")
+									</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+<!-- END NIRS:NIRSScanData/validation -->
+					</TD>
+				</TR>
+			</TABLE>
+<!-- END NIRS:NIRSScanData -->
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		#xdatEditProps($item $edit_screen)
+		<TR><TD COLSPAN=2 ALIGN=left><input type="button" ONCLICK="validateForm();"  name="eventSubmit_doInsert" value="Submit"/></TD></TR>
+		</TD>
+	</TR>
+</TABLE>
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+}
+</script>

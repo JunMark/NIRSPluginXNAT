@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("NIRSScan Details")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+ ##---------------------------------------- 
+ ## DO NOT MODIFY THIS FILE HERE
+ ##
+ ## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there 
+ ##----------------------------------------
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<font face="$ui.sansSerifFonts" size="3"><b>NIRSScan Details</b></font>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+							<TR><TD>image_session_ID</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/image_session_ID")</TD></TR>
+							<TR><TD>note</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/note")</TD></TR>
+							<TR><TD>quality</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/quality")</TD></TR>
+							<TR><TD>condition</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/condition")</TD></TR>
+							<TR><TD>series_description</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/series_description")</TD></TR>
+							<TR><TD>series_class</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/series_class")</TD></TR>
+							<TR><TD>documentation</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/documentation")</TD></TR>
+							<TR><TD>scanner</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/scanner")</TD></TR>
+							<TR><TD>scanner/manufacturer</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/scanner/manufacturer")</TD></TR>
+							<TR><TD>scanner/model</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/scanner/model")</TD></TR>
+							<TR><TD>scanner/softwareVersion</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/scanner/softwareVersion")</TD></TR>
+							<TR><TD>modality</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/modality")</TD></TR>
+							<TR><TD>frames</TD><TD>$!item.getIntegerProperty("NIRS:NIRSScanData/frames")</TD></TR>
+							<TR><TD>operator</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/operator")</TD></TR>
+							<TR><TD>startTime</TD><TD>$!item.getProperty("NIRS:NIRSScanData/startTime")</TD></TR>
+							<TR><TD>start_date</TD><TD>$!item.getProperty("NIRS:NIRSScanData/start_date")</TD></TR>
+							<TR><TD>requestedProcedureDescription</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/requestedProcedureDescription")</TD></TR>
+							<TR><TD>protocolName</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/protocolName")</TD></TR>
+							<TR><TD>bodyPartExamined</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/bodyPartExamined")</TD></TR>
+							<TR><TD>ID</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/ID")</TD></TR>
+							<TR><TD>type</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/type")</TD></TR>
+							<TR><TD>UID</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/UID")</TD></TR>
+							<TR><TD>project</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/project")</TD></TR>
+							<TR><TD>task</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/task")</TD></TR>
+						</TABLE>
+					</TD>
+					<TD valign="top" align="right">
+						#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+<!-- BEGIN NIRS:NIRSScanData -->
+			<TABLE>
+				<TR><TH align="left"><font face="$ui.sansSerifFonts" size="2">Related Items</font></TH></TR>
+				<TR>
+					<TD align="left" valign="top">
+						<TABLE>
+						</TABLE>
+					</TD>
+				</TR>
+				<TR>
+					<TD align="left" valign="top">
+						<TABLE><TR><TD>
+							#set($xnat_imageScanData_share_1_NUM_ROWS=$item.getChildItems("NIRS:NIRSScanData/sharing/share").size() - 1)
+							#if($xnat_imageScanData_share_1_NUM_ROWS>=0)
+								#foreach($xnat_imageScanData_share_1_COUNTER in [0..$xnat_imageScanData_share_1_NUM_ROWS])
+<!-- BEGIN NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER] -->
+									<TABLE>
+										<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]</font></TH></TR>
+										<TR>
+											<TD align="left" valign="top">
+												<TABLE>
+													<TR><TD>share</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/share")</TD></TR>
+													<TR><TD>label</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/label")</TD></TR>
+													<TR><TD>project</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER]/project")</TD></TR>
+												</TABLE>
+											</TD>
+										</TR>
+									</TABLE>
+<!-- END NIRS:NIRSScanData/sharing/share[$xnat_imageScanData_share_1_COUNTER] -->
+								#end
+							#end
+						</TD></TR></TABLE>
+					</TD>
+				</TR>
+				<TR>
+					<TD align="left" valign="top">
+						<TABLE><TR><TD>
+							#set($xnat_abstractResource_2_NUM_ROWS=$item.getChildItems("NIRS:NIRSScanData/file").size() - 1)
+							#if($xnat_abstractResource_2_NUM_ROWS>=0)
+								#foreach($xnat_abstractResource_2_COUNTER in [0..$xnat_abstractResource_2_NUM_ROWS])
+<!-- BEGIN NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER] -->
+									<TABLE>
+										<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]</font></TH></TR>
+										<TR>
+											<TD align="left" valign="top">
+												<TABLE>
+													<TR><TD>note</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/note")</TD></TR>
+													<TR><TD>label</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/label")</TD></TR>
+													<TR><TD>file_count</TD><TD>$!item.getIntegerProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/file_count")</TD></TR>
+													<TR><TD>file_size</TD><TD>$!item.getProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/file_size")</TD></TR>
+												</TABLE>
+											</TD>
+										</TR>
+										<TR>
+											<TD align="left" valign="top">
+												<TABLE><TR><TD>
+													#set($xnat_abstractResource_tag_3_NUM_ROWS=$item.getChildItems("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag").size() - 1)
+													#if($xnat_abstractResource_tag_3_NUM_ROWS>=0)
+														#foreach($xnat_abstractResource_tag_3_COUNTER in [0..$xnat_abstractResource_tag_3_NUM_ROWS])
+<!-- BEGIN NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag[$xnat_abstractResource_tag_3_COUNTER] -->
+															<TABLE>
+																<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag[$xnat_abstractResource_tag_3_COUNTER]</font></TH></TR>
+																<TR>
+																	<TD align="left" valign="top">
+																		<TABLE>
+																			<TR><TD>tag</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag[$xnat_abstractResource_tag_3_COUNTER]/tag")</TD></TR>
+																			<TR><TD>name</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag[$xnat_abstractResource_tag_3_COUNTER]/name")</TD></TR>
+																		</TABLE>
+																	</TD>
+																</TR>
+															</TABLE>
+<!-- END NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER]/tags/tag[$xnat_abstractResource_tag_3_COUNTER] -->
+														#end
+													#end
+												</TD></TR></TABLE>
+											</TD>
+										</TR>
+									</TABLE>
+<!-- END NIRS:NIRSScanData/file[$xnat_abstractResource_2_COUNTER] -->
+								#end
+							#end
+						</TD></TR></TABLE>
+					</TD>
+				</TR>
+				<TR>
+					<TD align="left" valign="top">
+<!-- BEGIN NIRS:NIRSScanData/validation -->
+						<TABLE>
+							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">NIRS:NIRSScanData/validation</font></TH></TR>
+							<TR>
+								<TD align="left" valign="top">
+									<TABLE>
+										<TR><TD>method</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/validation/method")</TD></TR>
+										<TR><TD>date</TD><TD>$!item.getProperty("NIRS:NIRSScanData/validation/date")</TD></TR>
+										<TR><TD>notes</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/validation/notes")</TD></TR>
+										<TR><TD>validated_by</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/validation/validated_by")</TD></TR>
+										<TR><TD>status</TD><TD>$!item.getStringProperty("NIRS:NIRSScanData/validation/status")</TD></TR>
+									</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+<!-- END NIRS:NIRSScanData/validation -->
+					</TD>
+				</TR>
+			</TABLE>
+<!-- END NIRS:NIRSScanData -->
+		</TD>
+	</TR>
+</TABLE>
